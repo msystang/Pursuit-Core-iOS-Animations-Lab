@@ -56,15 +56,31 @@
 		CD1518B3234F989400C8A77D /* Animations-Lab */ = {
 			isa = PBXGroup;
 			children = (
-				CD1518B4234F989400C8A77D /* AppDelegate.swift */,
-				CD1518B6234F989400C8A77D /* SceneDelegate.swift */,
-				CD1518B8234F989400C8A77D /* ViewController.swift */,
+				EA0EF64E235101D300A1D6D0 /* Controllers */,
+				EA0EF64F235101DF00A1D6D0 /* Supporting Files */,
 				CD1518BA234F989400C8A77D /* Main.storyboard */,
-				CD1518BD234F989900C8A77D /* Assets.xcassets */,
-				CD1518BF234F989900C8A77D /* LaunchScreen.storyboard */,
 				CD1518C2234F989900C8A77D /* Info.plist */,
 			);
 			path = "Animations-Lab";
+			sourceTree = "<group>";
+		};
+		EA0EF64E235101D300A1D6D0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD1518B8234F989400C8A77D /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EA0EF64F235101DF00A1D6D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD1518B4234F989400C8A77D /* AppDelegate.swift */,
+				CD1518B6234F989400C8A77D /* SceneDelegate.swift */,
+				CD1518BD234F989900C8A77D /* Assets.xcassets */,
+				CD1518BF234F989900C8A77D /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

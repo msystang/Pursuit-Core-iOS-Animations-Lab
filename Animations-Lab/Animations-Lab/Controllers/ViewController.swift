@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - UI Lazy Objects
     lazy var blueSquare: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         return button
     }()
     
+    // MARK: - UI Lazy Constraints
     
     lazy var blueSquareHeightConstaint: NSLayoutConstraint = {
         blueSquare.heightAnchor.constraint(equalToConstant: 200)
@@ -60,12 +62,14 @@ class ViewController: UIViewController {
         blueSquare.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     }()
     
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         configureConstraints()
     }
 
+    // MARK: - UI Action Methods
     @objc func animateSquareUp(sender: UIButton) {
         let oldOffset = blueSquareCenterYConstraint.constant
         blueSquareCenterYConstraint.constant = oldOffset - 150
@@ -82,6 +86,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - UI Constraint Methods
     private func addSubviews() {
         view.addSubview(blueSquare)
         addStackViewSubviews()
