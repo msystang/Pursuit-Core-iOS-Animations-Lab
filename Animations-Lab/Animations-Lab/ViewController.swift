@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         return button
     }()
     
+    
     lazy var blueSquareHeightConstaint: NSLayoutConstraint = {
         blueSquare.heightAnchor.constraint(equalToConstant: 200)
     }()
@@ -64,8 +65,8 @@ class ViewController: UIViewController {
         addSubviews()
         configureConstraints()
     }
-    
-    @IBAction func animateSquareUp(sender: UIButton) {
+
+    @objc func animateSquareUp(sender: UIButton) {
         let oldOffset = blueSquareCenterYConstraint.constant
         blueSquareCenterYConstraint.constant = oldOffset - 150
         UIView.animate(withDuration: 2) { [unowned self] in
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func animateSquareDown(sender: UIButton) {
+    @objc func animateSquareDown(sender: UIButton) {
         let oldOffet = blueSquareCenterYConstraint.constant
         blueSquareCenterYConstraint.constant = oldOffet + 150
         UIView.animate(withDuration: 2) { [unowned self] in
