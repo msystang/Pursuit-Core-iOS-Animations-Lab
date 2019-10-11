@@ -21,14 +21,14 @@ class ViewController: UIViewController {
        let buttonStack = UIStackView(arrangedSubviews: [upButton, downButton, leftButton])
         buttonStack.axis = .horizontal
         buttonStack.alignment = .center
-        buttonStack.distribution = .equalSpacing
+        buttonStack.distribution = .fillEqually
         buttonStack.spacing = 10
         return buttonStack
     }()
     
     lazy var upButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Move square up", for: .normal)
+        button.setTitle("Up", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .cyan
         button.addTarget(self, action: #selector(animateSquareUp(sender:)), for: .touchUpInside)
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     lazy var downButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Move square down", for: .normal)
+        button.setTitle("Down", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .cyan
         button.addTarget(self, action: #selector(animateSquareDown(sender:)), for: .touchUpInside)
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     lazy var leftButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Move square left", for: .normal)
+        button.setTitle("Left", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .cyan
         button.addTarget(self, action: #selector(animateSquareLeft(sender:)), for: .touchUpInside)
