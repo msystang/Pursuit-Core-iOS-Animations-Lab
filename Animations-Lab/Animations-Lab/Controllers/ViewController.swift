@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }()
     
     lazy var buttonStackView: UIStackView = {
-       let buttonStack = UIStackView(arrangedSubviews: [upButton, downButton, leftButton])
+       let buttonStack = UIStackView(arrangedSubviews: [upButton, downButton, leftButton, rightButton])
         buttonStack.axis = .horizontal
         buttonStack.alignment = .center
         buttonStack.distribution = .fillEqually
@@ -50,6 +50,15 @@ class ViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .cyan
         button.addTarget(self, action: #selector(animateSquareLeft(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var rightButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Right", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .cyan
+        button.addTarget(self, action: #selector(animateSquareRight(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -115,6 +124,14 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func animateSquareRight(sender: UIButton) {
+        let oldOffset = blueSquareCenterXConstraint.constant
+        blueSquareCenterXConstraint.constant = oldOffset + 100
+        UIView.animate(withDuration: animationDuration) { [unowned self] in
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     @objc func stepperAnimationDurationChanged(sender: UIStepper) {
         let stepperValue = sender.value
         animationDuration += stepperValue
@@ -132,6 +149,7 @@ class ViewController: UIViewController {
         buttonStackView.addSubview(upButton)
         buttonStackView.addSubview(downButton)
         buttonStackView.addSubview(leftButton)
+        buttonStackView.addSubview(rightButton)
     }
     
     private func configureConstraints() {
