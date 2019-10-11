@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    lazy var animationTimeStepper: UIStepper = {
+    lazy var animationDurationStepper: UIStepper = {
        let stepper = UIStepper()
         stepper.minimumValue = 0
         stepper.maximumValue = 10
@@ -108,6 +108,7 @@ class ViewController: UIViewController {
         view.addSubview(blueSquare)
         addStackViewSubviews()
         view.addSubview(buttonStackView)
+        view.addSubview(animationDurationStepper)
     }
     
     private func addStackViewSubviews() {
@@ -120,6 +121,7 @@ class ViewController: UIViewController {
         constrainUpButton()
         constrainDownButton()
         constrainButtonStackView()
+        constrainAnimationDurationStepper()
     }
     
     private func constrainUpButton() {
@@ -150,6 +152,16 @@ class ViewController: UIViewController {
             buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             buttonStackView.heightAnchor.constraint(equalToConstant: 50),
             buttonStackView.widthAnchor.constraint(equalTo: view.widthAnchor),
+        ])
+    }
+    
+    private func constrainAnimationDurationStepper() {
+        animationDurationStepper.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            animationDurationStepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animationDurationStepper.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            animationDurationStepper.heightAnchor.constraint(equalToConstant: 50),
+            animationDurationStepper.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
 }
