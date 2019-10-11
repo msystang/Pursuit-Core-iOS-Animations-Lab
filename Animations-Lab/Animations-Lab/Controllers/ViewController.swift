@@ -44,6 +44,14 @@ class ViewController: UIViewController {
         return button
     }()
     
+    lazy var animationTimeStepper: UIStepper = {
+       let stepper = UIStepper()
+        stepper.minimumValue = 0
+        stepper.maximumValue = 10
+        stepper.addTarget(self, action: #selector(stepperAnimationDurationChanged), for: .valueChanged)
+        return stepper
+    }()
+    
     // MARK: - UI Lazy Constraints
     
     lazy var blueSquareHeightConstaint: NSLayoutConstraint = {
@@ -62,6 +70,10 @@ class ViewController: UIViewController {
         blueSquare.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     }()
     
+    // MARK: - Private Properties
+    private var animationDuration: TimeInterval = 2
+    
+    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +85,7 @@ class ViewController: UIViewController {
     @objc func animateSquareUp(sender: UIButton) {
         let oldOffset = blueSquareCenterYConstraint.constant
         blueSquareCenterYConstraint.constant = oldOffset - 150
-        UIView.animate(withDuration: 2) { [unowned self] in
+        UIView.animate(withDuration: animationDuration) { [unowned self] in
             self.view.layoutIfNeeded()
         }
     }
@@ -81,9 +93,14 @@ class ViewController: UIViewController {
     @objc func animateSquareDown(sender: UIButton) {
         let oldOffet = blueSquareCenterYConstraint.constant
         blueSquareCenterYConstraint.constant = oldOffet + 150
-        UIView.animate(withDuration: 2) { [unowned self] in
+        UIView.animate(withDuration: animationDuration) { [unowned self] in
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func stepperAnimationDurationChanged(sender: UIStepper) {
+        let stepperValue = sender.value
+        animationDuration += stepperValue
     }
     
     // MARK: - UI Constraint Methods
